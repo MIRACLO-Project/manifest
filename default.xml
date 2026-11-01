@@ -5,8 +5,6 @@
   <default remote="clo-la" sync-c="true" sync-tags="false" />
 
   <include name="clo/system.xml" />
-  <include name="clo/vendor.xml" />
-  <include name="clo/wlan.xml" />
   <include name="clo/remove.xml" />
   <include name="clo/extra.xml" />
   <include name="miraclo.xml" />
