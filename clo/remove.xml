@@ -12,4 +12,11 @@
 
   <!-- NXP JavaCard keymint: built for keymint V3, the tree is on V5; not used by marble. -->
   <remove-project name="platform/vendor/nxp/opensource/keymaster" />
+
+  <!-- Qualcomm system add-ons built on closed Qualcomm interfaces that are
+       not in the open CLO sources: legacy full-disk encryption helper, FM
+       radio, and the Qualcomm Wi-Fi service. Android's own stacks are used. -->
+  <remove-project name="platform/vendor/qcom-opensource/cryptfs_hw" />
+  <remove-project name="platform/vendor/qcom-opensource/fm-commonsys" />
+  <remove-project name="platform/vendor/qcom/opensource/commonsys/wifi" />
 </manifest>
