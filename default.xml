@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="clo-la" fetch="https://git.codelinaro.org/clo/la" review="codelinaro.org" />
+  <remote name="miraclo" fetch="https://github.com/MiraCLO-OS" revision="aurora" />
+  <default remote="clo-la" sync-c="true" sync-tags="false" />
+
+  <include name="clo/system.xml" />
+  <include name="clo/vendor.xml" />
+  <include name="clo/wlan.xml" />
+  <include name="miraclo.xml" />
+</manifest>
