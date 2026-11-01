@@ -19,4 +19,6 @@
   <!-- Qualcomm's virtual machine service for the Gunyah hypervisor, built on
        closed Qualcomm interfaces. -->
   <remove-project name="platform/vendor/qcom-opensource/crosvm-gunyah" />
+  <remove-project name="platform/external/drm_hwcomposer" />
+  <remove-project name="device/amlogic/yukawa" />
 </manifest>
