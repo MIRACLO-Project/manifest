@@ -9,4 +9,7 @@
   <!-- NFC: the AOSP HALs in hardware/nxp/nfc and hardware/st/nfc are used. -->
   <remove-project name="platform/vendor/nxp/opensource/halimpl" />
   <remove-project name="platform/vendor/st/opensource/halimpl" />
+
+  <!-- NXP JavaCard keymint: built for keymint V3, the tree is on V5; not used by marble. -->
+  <remove-project name="platform/vendor/nxp/opensource/keymaster" />
 </manifest>
