@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!--
+    CLO projects that MiraCLO leaves out. CLO builds its system and vendor
+    images from separate trees; MiraCLO builds both from one tree, so where
+    the two define the same modules, only one copy is kept.
+  -->
+
+  <!-- NFC: the AOSP HALs in hardware/nxp/nfc and hardware/st/nfc are used. -->
+  <remove-project name="platform/vendor/nxp/opensource/halimpl" />
+  <remove-project name="platform/vendor/st/opensource/halimpl" />
+</manifest>
