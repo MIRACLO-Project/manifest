@@ -19,4 +19,7 @@
   <remove-project name="platform/vendor/qcom-opensource/cryptfs_hw" />
   <remove-project name="platform/vendor/qcom-opensource/fm-commonsys" />
   <remove-project name="platform/vendor/qcom/opensource/commonsys/wifi" />
+
+  <!-- Qualcomm's Sound Recorder app, built on a closed Qualcomm interface. -->
+  <remove-project name="platform/vendor/codeaurora/packages/apps/SoundRecorder" />
 </manifest>
