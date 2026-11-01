@@ -8,5 +8,6 @@
   <include name="clo/vendor.xml" />
   <include name="clo/wlan.xml" />
   <include name="clo/remove.xml" />
+  <include name="clo/extra.xml" />
   <include name="miraclo.xml" />
 </manifest>

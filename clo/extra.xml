@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!--
+    CLO projects that MiraCLO adds to the LA.QSSI.17.0 system manifest.
+  -->
+
+  <!-- Qualcomm Bluetooth interfaces (btconfigstore and others) used by the
+       Bluetooth module with Qualcomm vendors. -->
+  <project name="platform/vendor/qcom-opensource/bluetooth-commonsys-intf" path="vendor/qcom/opensource/commonsys-intf/bluetooth" revision="074935463eca5994aa0121be29c60b3069889ea7" upstream="refs/heads/bt-sysintf.lnx.16.1.r1-rel" />
+</manifest>
