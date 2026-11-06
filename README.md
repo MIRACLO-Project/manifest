@@ -1,90 +1,176 @@
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MIRACLO-Project/MIRACLO/main/assets/header_light.png">
-  <img alt="MIRACLO: Pure Android 17. Expressive where it counts." src="https://raw.githubusercontent.com/MIRACLO-Project/MIRACLO/main/assets/header_dark.png">
-</picture>
+<div align="center">
 
-# MIRACLO: build setup
+# MIRACLO
 
-How to build **MIRACLO 1.0 Aurora** (Android 17) from scratch. Branch: `aurora`.
+**A premium Android 17 ROM for the POCO F5 (marble), built from Qualcomm's CLO source.**
 
-MIRACLO is Qualcomm's Android source (CLO) plus five MIRACLO repositories. `miraclo.xml` swaps in
-MIRACLO's versions of frameworks/base, Settings and Launcher3 and adds the device and vendor trees.
-The three Mira Studio repositories are private: ask for access first
-([MIRACLO](https://github.com/MIRACLO-Project/MIRACLO)).
+`1.0 Aurora` · Android 17 · CLO `LA.QSSI.17.0` · Security patch `2026-08-05`
 
-## What you need
+**First release · under active development**
 
-- Linux (Ubuntu 22.04 or newer), 64 GB RAM or more, about 500 GB free disk.
-- `repo`, `git`, Python 3, and the usual Android build packages.
-- GitHub access to the private MIRACLO repositories (a token works as the git password).
+<!-- SCREENSHOTS: home screen · Quick Settings (ColorOS / iOS / One UI) · Mira Studio · lock screen · Mira Dolby -->
 
-## 1. Get the source
+</div>
 
+---
+
+> [!IMPORTANT]
+> **1.0 Aurora is MIRACLO's first build.** Everything is still under active development: expect bugs and missing features, and read [Known issues and missing features](#known-issues-and-missing-features) before installing. Keep a backup of your data.
+
+## Overview
+
+MIRACLO pairs a pure CLO system with its own design language, **Mira**. Every MIRACLO feature lives in one place, **Mira Studio**, opened from the card at the top of Settings, and every addition can be turned on or off.
+
+- Designed for both dark and light themes, on every screen.
+- Previews show your real lock screen, home screen, tiles and icons, never placeholder images.
+- Two variants: **GApps** (Google's own apps) and **Vanilla** (open-source apps, no Google apps).
+
+## At a glance
+
+| | |
+| --- | --- |
+| Device | POCO F5 / Redmi Note 12 Turbo (`marble`) |
+| Base | Qualcomm CLO, `LA.QSSI.17.0` |
+| Android | 17, security patch `2026-08-05` |
+| Kernel | **aurora**: Google's official `android12-5.10-lts` (5.10.272), built by MIRACLO |
+| Firmware | Xiaomi HyperOS `OS3.0.4.0.VMRMIXM`, included in the package |
+| Vendor | Xiaomi's stock vendor, odm and vendor_dlkm |
+| Signing | MIRACLO's own release keys and verified-boot key |
+| Variants | GApps and Vanilla, fastboot packages with SHA-256 checksums |
+| Updates | New builds as fastboot packages; OTA through Mira Updater starts with a later release |
+| Root | Optional zips: KernelSU-Next, KernelSU and SukiSU-Ultra, from their official releases |
+
+## Mira Studio
+
+One home for customisation, with live previews, an inline search over every option, a reset icon on every slider and a **Reset to default** button on every page.
+
+| Page | What you can change |
+| --- | --- |
+| Status bar | Wi-Fi and signal icon style (ColorOS, iOS, One UI or Android), merged SIMs, no-data mark, network type label, 4G+, VoLTE and Wi-Fi calling icons, clock seconds, visible icons, edge spacing, height |
+| Network speed | Live speed, hide when idle, position, style, arrows, size, units |
+| Quick Settings | Four styles (Stock, ColorOS, iOS, One UI), round tiles, tile size, edit controls |
+| Notification shade | Split pull: notifications on one side, Quick Settings on the other, sides swappable |
+| Liquid Glass | Glass with refraction and touch glow, and where it applies (Quick Settings, notifications, island, volume panel, power menu) |
+| Dynamic Island | On or off, pill length and height, each activity type, pop-up notifications |
+| Volume panel | Mira volume panel or Android's, left or right edge |
+| Power menu | Mira power menu or Android's |
+| Lock screen | Eight clock faces with weight, size, layout, alignment and font |
+| Home screen and icons | Icon packs, shape, size, themed icons, grid, labels, dots, folder blur, page transitions, gestures, hidden apps, layout lock, home search, recents style |
+| Wallpaper | MIRACLO wallpapers with blur, dim and vignette |
+| Colours and style | Wallpaper colours or any colour, palette style, dark theme, contrast |
+| Fonts | Mira Sans (Inter) or other fonts, text size, bold text |
+| Animations | Motion style and speed, wavy progress bar |
+| Display | Refresh rate (Adaptive, 60, 90, 120 Hz or always highest), refresh-rate counter, colour profile |
+| Battery | Battery saver, charging animation |
+| Sounds and haptics | Mira sounds, touch, lock and charging sounds, vibration strength |
+| App privacy | Privacy dashboard, clipboard alerts, lock-screen notification text, password visibility |
+| Software update | Check, download and install MIRACLO updates |
+
+## Quick Settings and notification shade
+
+- **Four styles:** Stock (round tiles), ColorOS, iOS-style Control Center and One UI, every control editable.
+- **ColorOS style:** the music card that grows into a full player, tall sliders, the ringer control and paged tiles.
+- **Editing:** ColorOS 17-style add sheet (Recommended first, then all tiles) for ColorOS and One UI; in-place editing for iOS.
+- **Split shade:** pull from the left for notifications, from the right for Quick Settings (Android 17 Dual Shade).
+- **Liquid Glass:** frosted glass with real refraction and an optional soft touch glow.
+- **Landscape:** every style on one screen, controls on the left and tiles on the right, notifications in a centred column.
+- **Accessibility:** every round control is named and works with TalkBack.
+
+## Status bar, Dynamic Island and lock screen
+
+- Signal and Wi-Fi icons in ColorOS, iOS or One UI style, or Android's.
+- Stacked network speed indicator.
+- **Dynamic Island** (never on the lock screen or in full-screen apps): media, calls, timers and stopwatch, screen recording, live updates (navigation, rides, deliveries), downloads, charging, earbuds battery, ringer mode and low battery; message pop-ups with Reply and Mark as read; up to three activities at once.
+- **Lock screen:** eight Mira clock faces, outline clocks on the always-on display, and a charging ring with level, fast-charging label and time to full.
+
+## Launcher
+
+- Icon packs (ADW, Nova and Lawnchair formats) with separate packs for the home screen and the app drawer, plus Mira system icons and themed icons.
+- Icon shape and size, labels, notification dots, folders that blur the wallpaper.
+- Grid size, layout lock, hidden apps, page transitions (slide, cube, depth, fade).
+- Gestures: double-tap to lock, swipe down, swipe up and pinch, each with its own action.
+- Home search: a pill the page dots turn into, or a search bar below the dock, with your choice of search app.
+- Recents: default or ColorOS stacked style, with a close-all button.
+
+## System UI
+
+- **Mira power menu:** slide to Power off or Restart, plus Emergency, Lockdown and Advanced (Restart System UI, recovery, bootloader).
+- **Mira volume panel:** a compact edge panel with Liquid Glass.
+
+## Mira apps
+
+- **Mira Dolby:** the phone's Dolby Atmos engine with profiles (Dynamic, Movie, Music, Game, Voice, Custom), intelligent equalizer, 10-band graphic equalizer, surround virtualiser, stereo width, dialogue enhancer, volume leveller, bass and treble; separate speaker and headphone settings, per-app profiles, saved presets and a Quick Settings tile. Includes the EasyEffects presets by JackHack96.
+- **Mira Updater:** background A/B updates with pause and resume, Wi-Fi only and What's new (OTA delivery starts with a later release).
+- **Mira Setup:** MIRACLO's own first screens before Google's or Android's setup.
+- **Identity:** Mira Sans (Inter), Mira sounds, MIRACLO wallpapers (Planetary is the default) and the MIRACLO boot animation.
+
+## Apps
+
+| Role | GApps | Vanilla |
+| --- | --- | --- |
+| Phone | Google Phone | Fossify Phone |
+| Messages | Google Messages | Fossify Messages |
+| Contacts | Google Contacts | Fossify Contacts |
+| Calendar | Google Calendar | Fossify Calendar |
+| Clock | Google Clock | Fossify Clock |
+| Calculator | Google Calculator | Fossify Calculator |
+| Files | Files by Google | Fossify File Manager |
+| Gallery | Google Photos | Aves |
+| Music | YouTube | Gramophone |
+| Keyboard | Gboard | HeliBoard |
+| Browser | Chrome | Cromite |
+| Camera | Xiaomi camera | Xiaomi camera |
+| Sound | Mira Dolby | Mira Dolby |
+
+GApps also includes Google's core: Play services, Play Store, the Google app, setup and restore, sync, speech services, TalkBack, Digital Wellbeing, Android Auto and Family Link. Vanilla apps come from each developer's official release, checked against the developer's signing key.
+
+## Performance
+
+- **aurora kernel:** Google's official `android12-5.10-lts`, built with Google's GKI configuration and ThinLTO. All 421 stock Xiaomi drivers are checked against it before every release (24,041 symbol checks). A display fix keeps the panel and the screen-sampling output working together without frame drops.
+- **Qualcomm boosts:** touch, scroll, app launch and animation boosts through Qualcomm's performance service.
+- **Scheduler:** the foreground app gets a minimum CPU boost and is latency-sensitive; background work is capped.
+- **Memory:** zram tuned for phones, PSI-driven low-memory killer, Dalvik heap sized for 8 and 12 GB.
+- **Storage:** UFS queue tuned (no I/O stats, no entropy, completions on the requesting CPU).
+- **Graphics:** CPU performance hints for SurfaceFlinger and the UI renderer, frame pacing for 120 Hz.
+- **Compiling:** System UI, launcher and Settings compiled ahead of time; apps verified on first boot and compiled in the background.
+
+## Installing
+
+MIRACLO installs from a computer with the phone in **fastboot mode** (Power + Volume down), bootloader unlocked.
+
+1. Extract the zip and open a terminal in the extracted folder.
+2. Run `bash flash_all.sh` (Linux and macOS) or `flash_all.bat` (Windows).
+3. Answer `y` to wipe data on the first install. Later installs can keep data.
+
+`flash_keep_firmware.sh` does the same but keeps the firmware already on the phone. Every file in the package is listed in `SHA256SUMS`.
+
+## Building
+
+```bash
+repo init -u https://github.com/MIRACLO-Project/manifest -b aurora --git-lfs
+repo sync -c -j16 --force-sync --no-clone-bundle --no-tags
 ```
-mkdir -p ~/aurora && cd ~/aurora
-repo init -u https://github.com/MIRACLO-Project/manifest -b aurora -m default.xml --depth=1
-mkdir -p .repo/local_manifests
-curl -o .repo/local_manifests/miraclo.xml https://raw.githubusercontent.com/MIRACLO-Project/manifest/aurora/miraclo.xml
-repo sync -c -j8 --no-tags --no-clone-bundle
-```
 
-`server_local_manifests/` holds the extra local manifests the reference build machine had (for
-reference; check them against `miraclo.xml` before adding any).
+Then follow `vendor/miraclo/README.md`: apply the build patches in `vendor/miraclo/patches`, fetch the stock firmware for marble, and run `vendor/miraclo/tools/build-release.sh` (`VARIANT=vanilla` for Vanilla). The aurora kernel builds from Google's official source with `vendor/miraclo/kernel/aurora-lts.sh`.
 
-## 2. MIRACLO's changes to other Android repos
+Release builds are signed with MIRACLO's private keys, which are never stored in any repository; your builds should use your own.
 
-```
-vendor/miraclo/patches/apply.sh
-```
+## Known issues and missing features
 
-This applies `build_soong.patch` (lets the camera's MIUI stand-in classes into the framework, plus
-build fixes) and any other patches listed in `vendor/miraclo/patches/OTHER_REPOS.txt`.
+1.0 Aurora is the first MIRACLO build. It is under active development, and these are known:
 
-## 3. Your signing keys
+**Not in this build yet**
+- **Face unlock:** coming in a later update as Mira Face.
+- **OTA updates:** Mira Updater is included, but updates are delivered as fastboot packages for now.
+- **Recovery package:** install with fastboot (`flash_all`). A custom recovery such as OrangeFox can be used for root zips.
 
-Builds are signed with your own keys in `vendor/miraclo-keys/` (never put keys in git). Make them
-once with Android's `development/tools/make_key` for `releasekey`, `platform`, `shared`, `media`,
-`networkstack`, `sdk_sandbox` and `bluetooth`, and keep a backup: a phone can only take updates
-signed with the same keys it was installed with.
+**Known issues**
+- Apps that require a locked bootloader (some banking and payment apps) may refuse to run.
+- Some MIRACLO options and visual effects may still have rough edges on certain screens.
+- Battery life and performance tuning for the aurora kernel continues in the next builds.
 
-## 4. Stock firmware and Google apps
+Found something else? Report it with the steps to reproduce it and, if you can, a log (`adb logcat`). Fixes ship in the next build.
 
-```
-source build/envsetup.sh
-lunch miraclo_marble-cp2a-userdebug
-m ota_extractor fsck.erofs aapt2 simg2img
-device/xiaomi/marble/fetch-stock.sh                 # Xiaomi's vendor images and firmware (not in git)
-vendor/miraclo/gapps/extract-gapps.sh <Pixel 7 Android 17 factory image>   # skip with WITH_GMS=false
-```
+## Changelog
 
-## 5. Build
-
-```
-m                                   # images: out/target/product/marble/
-m target-files-package              # target files
-ota_from_target_files -k vendor/miraclo-keys/releasekey \
-  out/target/product/marble/obj/PACKAGING/target_files_intermediates/miraclo_marble-target_files.zip \
-  out/target/product/marble/MIRACLO-ota.zip
-```
-
-`vendor/miraclo/tools/` has the full release flow: `build-release.sh` (stock firmware, Google
-apps, build, preflight checks, release package with flash scripts) and `ota-step.sh` (the update
-zip). Android 17 has no `otapackage` target; `ota-step.sh` makes the zip from the target files.
-
-## 6. Install
-
-- **First install** (from HyperOS or another ROM): the release package's `flash_all.sh` in
-  fastboot, answering **y** to wipe data.
-- **Update** (MIRACLO to MIRACLO, same keys): recovery › Apply update from ADB, then
-  `adb sideload MIRACLO-ota.zip`. Data stays.
-
-## Things that will bite you
-
-| Symptom | Cause and fix |
-|---|---|
-| `ninja: unknown target 'otapackage'` | Android 17 builds without it. Use `ota-step.sh` or the commands in step 5. |
-| `check boot jar packages ... miui.hardware.display` | Run `vendor/miraclo/patches/apply.sh` (adds the `miui.*` packages to the boot jar allow list). |
-| Bootloop, `privileged permissions not in privileged permission allowlist` | A system app asked for a new privileged permission. Add it to that app's file in `frameworks/base/data/etc/` (System UI: `com.android.systemui.xml`). |
-| New Settings or launcher features missing on the phone | An older copy installed with `adb install` hides the system one: `adb shell pm uninstall-system-updates com.android.settings` (or `com.android.launcher3`). |
-| `m: command not found` in a script | Run it after `source build/envsetup.sh` and `lunch`. |
-| Recovery refuses an update | The phone was installed with other keys. Updates need the same keys; otherwise flash with fastboot and wipe. |
+See [CHANGELOG.md](CHANGELOG.md).

@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MIRACLO 1.0 Aurora: put this file in .repo/local_manifests/ after "repo init" of the CLO base. -->
 <manifest>
   <remote name="miraclo" fetch="https://github.com/MIRACLO-Project" revision="aurora" />
-
   <remove-project name="platform/frameworks/base" />
-  <remove-project name="platform/packages/apps/Settings" />
-  <remove-project name="platform/packages/apps/Launcher3" />
-  <remove-project name="platform/build/release" />
-  <remove-project name="platform/frameworks/native" />
-  <remove-project name="platform/hardware/interfaces" />
-  <remove-project name="platform/packages/apps/Dialer" />
-  <remove-project name="platform/packages/apps/Gallery2" />
-  <remove-project name="platform/packages/modules/Bluetooth" />
-  <remove-project name="platform/packages/modules/Wifi" />
-
-  <!-- Mira Studio (private: ask for access): frameworks/base, Settings, Launcher3 -->
   <project path="frameworks/base" name="android_frameworks_base" remote="miraclo" />
+  <remove-project name="platform/packages/apps/Settings" />
   <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="miraclo" />
+  <remove-project name="platform/packages/apps/Launcher3" />
   <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="miraclo" />
-  <project path="device/xiaomi/marble" name="android_device_xiaomi_marble" remote="miraclo" />
   <project path="vendor/miraclo" name="android_vendor_miraclo" remote="miraclo" />
-  <project path="build/release" name="android_build_release" remote="miraclo" />
-  <project path="frameworks/native" name="android_frameworks_native" remote="miraclo" />
-  <project path="hardware/interfaces" name="android_hardware_interfaces" remote="miraclo" />
-  <project path="packages/apps/Dialer" name="android_packages_apps_Dialer" remote="miraclo" />
-  <project path="packages/apps/Gallery2" name="android_packages_apps_Gallery2" remote="miraclo" />
-  <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" remote="miraclo" />
-  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" remote="miraclo" />
+  <project path="device/xiaomi/marble" name="android_device_xiaomi_marble" remote="miraclo" />
 </manifest>
