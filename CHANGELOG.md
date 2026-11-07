@@ -1,5 +1,20 @@
 # Changelog
 
+## Next build (in testing)
+
+- Builds are tagged release-keys.
+- Launcher: icon packs and recents style moved to Mira Studio › Home screen & icons; the launcher's Home settings gets **Advanced settings**, which opens that page.
+- The stock media player leaves the collapsed shade and the lock screen; the Quick Settings music cards stay.
+- Maintainer support: build for other devices with `DEVICE=<device>` (see [DEVICES.md](DEVICES.md)).
+
+## 1.0 Aurora (recovery update, 6 Nov)
+
+- Recovery package (payload OTA zip) that installs from OrangeFox.
+- Mira Dolby: None preset, Sound and Tuning pages, aligned labels.
+- Power menu: Android's own menu for now.
+- Display flicker with the aurora kernel fixed.
+- Setup no longer loops back to the first page.
+
 ## 1.0 Aurora
 
 Now based on Qualcomm CLO `LA.QSSI.17.0` (Android 17).

@@ -36,8 +36,8 @@ MIRACLO pairs a pure CLO system with its own design language, **Mira**. Every MI
 | Firmware | Xiaomi HyperOS `OS3.0.4.0.VMRMIXM`, included in the package |
 | Vendor | Xiaomi's stock vendor, odm and vendor_dlkm |
 | Signing | MIRACLO's own release keys and verified-boot key |
-| Variants | GApps and Vanilla, fastboot packages with SHA-256 checksums |
-| Updates | New builds as fastboot packages; OTA through Mira Updater starts with a later release |
+| Variants | GApps and Vanilla, fastboot and recovery packages with SHA-256 checksums |
+| Updates | New builds as fastboot or recovery packages; OTA through Mira Updater starts with a later release |
 | Root | Optional zips: KernelSU-Next, KernelSU and SukiSU-Ultra, from their official releases |
 
 ## Mira Studio
@@ -53,7 +53,6 @@ One home for customisation, with live previews, an inline search over every opti
 | Liquid Glass | Glass with refraction and touch glow, and where it applies (Quick Settings, notifications, island, volume panel, power menu) |
 | Dynamic Island | On or off, pill length and height, each activity type, pop-up notifications |
 | Volume panel | Mira volume panel or Android's, left or right edge |
-| Power menu | Mira power menu or Android's |
 | Lock screen | Eight clock faces with weight, size, layout, alignment and font |
 | Home screen and icons | Icon packs, shape, size, themed icons, grid, labels, dots, folder blur, page transitions, gestures, hidden apps, layout lock, home search, recents style |
 | Wallpaper | MIRACLO wallpapers with blur, dim and vignette |
@@ -94,8 +93,8 @@ One home for customisation, with live previews, an inline search over every opti
 
 ## System UI
 
-- **Mira power menu:** slide to Power off or Restart, plus Emergency, Lockdown and Advanced (Restart System UI, recovery, bootloader).
 - **Mira volume panel:** a compact edge panel with Liquid Glass.
+- **Power menu:** Android's own menu in this build; the Mira power menu returns once it opens as fast as Android's.
 
 ## Mira apps
 
@@ -144,6 +143,8 @@ MIRACLO installs from a computer with the phone in **fastboot mode** (Power + Vo
 
 `flash_keep_firmware.sh` does the same but keeps the firmware already on the phone. Every file in the package is listed in `SHA256SUMS`.
 
+**Recovery package:** flash the `-recovery.zip` from OrangeFox (Install). It goes to the inactive slot; reboot to system afterwards. Updates over an existing MIRACLO install keep your data.
+
 ## Building
 
 ```bash
@@ -155,6 +156,10 @@ Then follow `vendor/miraclo/README.md`: apply the build patches in `vendor/mirac
 
 Release builds are signed with MIRACLO's private keys, which are never stored in any repository; your builds should use your own.
 
+### Bring MIRACLO to your device
+
+Maintainers can build MIRACLO for any Snapdragon device with a working Android 17 tree: add your trees in a local manifest, copy the product file example, and build with `DEVICE=<device>`. The full guide, including the rules for official builds, is in [DEVICES.md](DEVICES.md).
+
 ## Known issues and missing features
 
 1.0 Aurora is the first MIRACLO build. It is under active development, and these are known:
@@ -162,7 +167,6 @@ Release builds are signed with MIRACLO's private keys, which are never stored in
 **Not in this build yet**
 - **Face unlock:** coming in a later update as Mira Face.
 - **OTA updates:** Mira Updater is included, but updates are delivered as fastboot packages for now.
-- **Recovery package:** install with fastboot (`flash_all`). A custom recovery such as OrangeFox can be used for root zips.
 
 **Known issues**
 - Apps that require a locked bootloader (some banking and payment apps) may refuse to run.
