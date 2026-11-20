@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.1 Aurora (in testing)
+
+**Design**
+- Mira design language across the system: continuous corners (cards 28, wells 22), capsule buttons and sliders, Mira Sans with the iOS type scale, iOS system colours, 60 × 28 switches, sliders with a reset button.
+- Liquid Glass everywhere it is turned on: Clear or Tinted glass with eight tints, blur strength, smoother glass, and a milky light-theme glass with readable text. Quick Settings, notifications, the Dynamic Island and the volume panel follow the same look.
+- Text in Quick Settings and the shade stays readable over any wallpaper.
+
+**Mira Studio**
+- New pages: Notifications (card style, spacing, transparency, blur, lock screen Count/Stack/List, group by app, app icon in toasts), Network access, Dual apps, App lock, Bug report, Screenshots & recording, Gestures, Performance, Floating windows, Software update, Call recording.
+- Lock screen: widgets, left and right shortcuts, Always-on display (Always, Scheduled, Tap to show) and Edge lighting (Glow, Pulse, Rainbow, Corners).
+- Display: Extra dim and per-app refresh rate.
+- Quick Settings: columns, rows, labels, brightness and media visibility, colours, transparency and blur.
+
+**Apps**
+- Mira Setup: Hello, Make it yours (Light or Dark with the matching Aurora wallpaper), Controls (navigation and Quick Settings style), Liquid Glass.
+- Mira Updater: new design, daily background check, automatic download, Wi-Fi only, restart overnight to install.
+- Mira Dolby and Mira GameSpace redesigned.
+- Call recording from a notification during calls.
+
+**Under the hood**
+- Vulkan rendering for apps and SurfaceFlinger; 120 Hz tuning; apps compiled with their profiles at install.
+
+**Not in 1.1**
+- 6.x kernel and face unlock (next update). 4K video in the camera and charging limits wait for device checks.
+
 ## Next build (in testing)
 
 - Builds are tagged release-keys.
