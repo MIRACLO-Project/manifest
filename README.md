@@ -4,7 +4,7 @@
 
 **A premium Android 17 ROM for the POCO F5 (marble), built from Qualcomm's CLO source.**
 
-`1.0 Aurora` · Android 17 · CLO `LA.QSSI.17.0` · Security patch `2026-08-05`
+`1.0 Aurora` · Android 17 · CLO `LA.QSSI.17.0` · Security patch `2026-11-05`
 
 **First release · under active development**
 

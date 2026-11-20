@@ -20,6 +20,7 @@
 - Call recording from a notification during calls.
 
 **Under the hood**
+- CLO `LA.QSSI.17.0.r1-12500-qssi.0`, security patch 2026-11-05.
 - Vulkan rendering for apps and SurfaceFlinger; 120 Hz tuning; apps compiled with their profiles at install.
 
 **Not in 1.1**
